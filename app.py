@@ -13,10 +13,7 @@ def main():
 
 @app.route("/imageGPT",methods=["GET","POST"])
 def imageGPT():
-  name = request.form.get("r")
   return(render_template("imageGPT.html"))
-
-
 
 
 if __name__ == "__main__":
