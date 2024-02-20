@@ -12,7 +12,7 @@ def main():
   return(render_template("main.html",r=r))
 
 @app.route("/imageGPT",methods=["GET","POST"])
-def main():
+def imageGPT():
   name = request.form.get("r")
   return(render_template("imageGPT.html"))
 
