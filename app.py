@@ -1,6 +1,8 @@
 from flask import Flask,request,render_template
-
 app = Flask(__name__)
+
+r=""
+first_time = 1
 
 @app.route("/",methods=["GET","POST"])
 def index():
@@ -14,6 +16,12 @@ def main():
 @app.route("/imageGPT",methods=["GET","POST"])
 def imageGPT():
   return(render_template("imageGPT.html"))
+
+@app.route("/end",methods=["GET","POST"])
+def end():
+  global first_time =1
+  return(render_template("end.html"))
+
 
 
 if __name__ == "__main__":
