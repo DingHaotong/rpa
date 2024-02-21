@@ -34,7 +34,7 @@ def image_result():
         "prompt": q,
         }
     )
-    time.sleep(10)
+    time.sleep(5)
     return(render_template("image_result.html",r=r[0]))
 
 @app.route("/end",methods=["GET","POST"])
