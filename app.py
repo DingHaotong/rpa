@@ -28,7 +28,7 @@ def main():
 
 @app.route("/text_gpt",methods=["GET","POST"])
 def text_gpt():
-    return(render_template("text_gpt.html")
+    return(render_template("text_gpt.html"))
 
 @app.route("/text_result",methods=["GET","POST"])
 def text_result():
