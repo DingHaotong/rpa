@@ -4,7 +4,7 @@ import os
 import time
 from openai import OpenAI
 
-open_api_key=os.getenv["OpenAI_API_TOKEN"]
+open_api_key=os.getenv["OPENAI_API_KEY"]
 os.environ["REPLICATE_API_TOKEN"]="r8_2idkAutIh1jCAVVRIbEDgqt9zNUdbhG2cS1AF"
 model = OpenAI(api_key=open_api_key)
 
