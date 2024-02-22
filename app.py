@@ -4,12 +4,12 @@ import os
 import time
 from openai import OpenAI
 
-open_api_key=os.getenv("OPENAI_API_KEY")
+openai_api_key=os.getenv("OPENAI_API_KEY")
 os.environ["REPLICATE_API_TOKEN"]="r8_2idkAutIh1jCAVVRIbEDgqt9zNUdbhG2cS1AF"
-model = OpenAI(api_key=open_api_key)
+
+model = OpenAI(api_key=openai_api_key)
 
 app = Flask(__name__)
-
 
 r = ""
 first_time = 1
@@ -32,12 +32,14 @@ def text_gpt():
 
 @app.route("/text_result",methods=["GET","POST"])
 def text_result():
-    q=request.form.get("q")
-    r=model.chat.completions.create(
+    q = request.form.get("q")
+    r = model.chat.completions.create(
         model = "gpt-3.5-turbo",
         messages=[
+            {
             "role" : "user",
             "content" : q
+            }
         ]
     )
     time.sleep(5)
@@ -61,9 +63,9 @@ def image_result():
 
 @app.route("/end",methods=["GET","POST"])
 def end():
-    global first_time
+    global first_time,r
     first_time = 1
-    return(render_template("end.html"),r=r)
+    return(render_template("end.html",r=r))
 
 if __name__ == "__main__":
     app.run()
